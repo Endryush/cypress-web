@@ -41,7 +41,7 @@ Cypress.Commands.add('loginUI',(email, password) => {
   
   cy.intercept('POST', 'api/users/login').as('postLogin');
       
-  cy.get(loginElement.loginButton).contains('Login').click();
+  cy.get(loginElement.loginBtn).contains('Login').click();
   
   cy.wait('@postLogin').its('response.statusCode').should('equal',200)
 })
