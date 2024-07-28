@@ -53,14 +53,15 @@ Cypress.Commands.add('loginAPI',(email, password) => {
       url: 'api/users/login',
       body: {user:{email: email, password: password}}
       }).then((response) => {
-          expect(response.status).to.be.eq(200)
-          let storage = {"headers":{
-          "Authorization":"Token "+ response.body.user.token},
-          "isAuth":true,
-          "loggedUser":response.body.user                       
-          }
-      window.localStorage.setItem('loggedUser', JSON.stringify(storage));
-      }).as('postLogin');
+        expect(response.status).to.be.eq(200)
+        const storage = {
+          headers:{
+          Authorization:'Token '+ response.body.user.token},
+          isAuth:true,
+          loggedUser: response.body.user                       
+        }
+        window.localStorage.setItem('loggedUser', JSON.stringify(storage));
+      }).as('postLoginAPI');
   })
 })
 
