@@ -23,7 +23,7 @@ class Login {
   }
 
   logout () {
-    return cy.get(ELEMENTS.profileMenu).click().then(() => {
+    return cy.get(ELEMENTS.profileIcon).click().then(() => {
       cy.get(ELEMENTS.linkLogout)
         .contains('Logout').click()
     })
