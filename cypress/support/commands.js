@@ -95,7 +95,7 @@ Cypress.Commands.add('publishArticle',() => {
 
 Cypress.Commands.add('accessProfile',() => { 
   cy.get(loginElement.profileIcon).click().then(() => {
-    cy.get(headerElements.profileMenu)
+    cy.get(loginElement.profileMenu)
       .children()
       .eq(0)
       .click();             
@@ -119,6 +119,7 @@ Cypress.Commands.add('createRandomArticle',() => {
       body: faker.lorem.sentence(2),
       description: faker.lorem.sentence(),
       tagList: '',
+      tag: faker.lorem.word(4),
       title: faker.lorem.sentence(3) 
     }
   }
