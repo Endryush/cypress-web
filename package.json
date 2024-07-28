@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
-    "cypress:cli": "cypress run",
+    "cy:cli": "cypress run",
     "cy:run:chrome": "cypress run --headed"
   },
   "author": "",
