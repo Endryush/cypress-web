@@ -3,7 +3,7 @@ import Home from "../home"
 import Editor from './index'
 import { faker } from '@faker-js/faker'
 
-describe.skip('Manage article --- Page objects', () => {
+describe('Manage article --- Page objects', () => {
   beforeEach(() => {
     Home.acessHomePage()
     Home.accessLoginPage()
@@ -35,7 +35,7 @@ describe.skip('Manage article --- Page objects', () => {
   })
 })
 
-describe.skip('Manage article - version with custom commands and UI login', () => {
+describe('Manage article - version with custom commands and UI login', () => {
   beforeEach(() => {
     cy.visit('#/login')
     cy.loginUI(Cypress.env('defaultEmail'), Cypress.env('defaultPassword'))
@@ -103,7 +103,7 @@ describe('Manage article - version with custom commands and API login', () => {
     })
   })
 
-  it.only('Deleting an article posted by user', () => {
+  it('Deleting an article posted by user', () => {
     const loggedUser = JSON.parse(window.localStorage.getItem('loggedUser'))
     cy.createRandomArticle().then((article) => {
       cy.postArticleAPI(article, loggedUser)
