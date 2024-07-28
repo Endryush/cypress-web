@@ -14,8 +14,8 @@ describe('Login Feature using Page Objects', () => {
   })
 
   it('Login with invalid credentials', () => {
-    Home.accesLoginPage()
-    Login.validadeLoginPage()
+    Home.accessLoginPage()
+    Login.validateLoginPage()
 
     cy.intercept('POST', 'api/users/login').as('loginPost')
 
@@ -26,8 +26,8 @@ describe('Login Feature using Page Objects', () => {
   })
 
   it('Login with valid credentials', () => {
-    Home.accesLoginPage()
-    Login.validadeLoginPage()
+    Home.accessLoginPage()
+    Login.validateLoginPage()
 
     cy.intercept('POST', 'api/users/login').as('postLogin')
     cy.intercept('GET', 'api/user').as('getUser')
@@ -49,14 +49,14 @@ describe('Login Feature using Page Objects', () => {
     })
   })
 
-  it.only('Login with multiple valid credentials', () => {
+  it('Login with multiple valid credentials', () => {
     cy.intercept('POST', 'api/users/login').as('postLogin')
     cy.intercept('GET', 'api/user').as('getUser')
 
     cy.fixture('usersCredentials.json').then(userFixture => {
       userFixture.forEach(user => {
-        Home.accesLoginPage()
-        Login.validadeLoginPage()
+        Home.accessLoginPage()
+        Login.validateLoginPage()
   
         Login.doLogin(user.user.email, user.user.password)
 

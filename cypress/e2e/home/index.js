@@ -3,7 +3,7 @@ class Home {
     cy.visit('/')
   }
 
-  accesLoginPage () {
+  accessLoginPage () {
     cy.contains('Login')
       .should('have.attr', 'href', '#/login')
       .click()

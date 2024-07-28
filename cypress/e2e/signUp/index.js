@@ -5,7 +5,7 @@ class Register {
     const credentials = []
     const responses = []
 
-    for (let i = 0; i < qty; i++) {
+    test : Cypress._.times(qty, () => {
       cy.request({
         method: 'POST',
         url: 'api/users',
@@ -20,10 +20,30 @@ class Register {
         credentials.push(JSON.parse(response.requestBody))
         responses.push(response.body)
       })
-    }
+    })
 
     cy.writeFile('cypress/fixtures/usersCredentials.json', credentials)
     cy.writeFile('cypress/fixtures/usersRegistered.json', responses)
+  }
+
+  fillRegisterForm (name, email, password) {
+    cy.get(ELEMENTS.nameInput)
+    .type(name)
+    .should('have.attr', 'required');
+
+    cy.get(ELEMENTS.emailInput)
+        .type(email)
+        .should('have.attr', 'type', 'email')
+        .and('have.attr', 'required');
+
+    cy.get(ELEMENTS.passwordInput)
+        .type(password)
+        .should('have.attr', 'type', 'password')
+        .and('have.attr', 'required')
+  }
+
+  submitRegisterForm () {
+    return cy.get(ELEMENTS.btnSubmit).click()
   }
 }
 

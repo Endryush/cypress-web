@@ -1,8 +1,12 @@
 import { ELEMENTS } from "./elements";
 
 class Login {
-  validadeLoginPage () {
+  validateLoginPage () {
     cy.url('/login').then(() => cy.contains('Sign in'))
+  }
+
+  accessRegisterPage () {
+    return cy.contains(ELEMENTS.registerLinkText).click()
   }
 
   doLogin (username, password) {
