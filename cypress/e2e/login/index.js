@@ -17,6 +17,13 @@ class Login {
 
     return cy.get(ELEMENTS.loginBtn).contains('Login').click()
   }
+
+  logout () {
+    return cy.get(ELEMENTS.profileMenu).click().then(() => {
+      cy.get(ELEMENTS.linkLogout)
+        .contains('Logout').click()
+    })
+  }
 }
 
 export default new Login()

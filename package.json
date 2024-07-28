@@ -5,12 +5,13 @@
   "main": "index.js",
   "scripts": {
     "cy:open": "cypress open",
-    "cypress:cli":  "cypress run",
+    "cypress:cli": "cypress run",
     "cy:run:chrome": "cypress run --headed"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "cypress": "^13.13.1",
     "cypress-plugin-api": "^2.11.2",
     "eslint-plugin-cypress": "^3.4.0"

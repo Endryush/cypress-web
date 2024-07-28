@@ -3,3 +3,5 @@ cypress/results/*
 cypress/screenshots/*
 cypress/videos/*
 cypress/reports/*
+cypress/fixtures/usersCredentials.json
+cypress/fixtures/usersRegistered.json
